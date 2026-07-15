@@ -5,15 +5,34 @@
   </picture>
 </p>
 
-<p align="center"><strong>Small, sharp, zero-dependency building blocks for people who work with data.</strong></p>
+<p align="center"><strong>Build on the databases you already have.</strong></p>
 
 ---
 
-We build **DeeBee** — a platform that puts a business-logic and write-buffer layer over the databases
-you already run. The focused, dependency-free pieces we needed along the way, we ship as open source
-and use in production ourselves. Everything here is MIT-licensed, typed, and made to do one thing well.
+## DeeBee
 
-## SQLEasy — dialect-correct SQL, bring your own connection
+**DeeBee** is a data platform that sits on top of the databases you already run — Postgres, MySQL,
+SQL Server, SQLite. Point it at a connection and it turns your tables into:
+
+- **Datasets** — editable, partially-writable views over your data, edited in a fast grid or through generated forms.
+- **Forms & views** — build data entry and read-only lenses on top of a dataset, no schema changes required.
+- **Workflows** — automate the busywork: trigger on a data change, a schedule, or a manual action, with human-in-the-loop tasks and an inbox.
+- **Audit trail** — every change captured before/after, with history and restore.
+- **Roles & permissions** — control who can see and do what.
+
+Writes go straight through to your source, or through a buffer when you want them staged and applied
+on your terms — your data stays in **your** database, not locked inside ours. And it's built to be
+extended: a contribution-point **plugin** model lets you add data sources, fields, and UI without
+forking the core.
+
+DeeBee is in active development and currently private. The packages below are the dependency-free
+pieces we built it on, released for everyone.
+
+## Open source
+
+Everything here is MIT-licensed, typed, and made to do one thing well. We use all of it in production.
+
+### SQLEasy — dialect-correct SQL, bring your own connection
 
 A SQL _builder_, not a driver or an ORM. It composes correct SELECT / INSERT / UPDATE / DELETE — plus
 CTEs, unions, and batched transactions — for Postgres, MySQL, SQL Server, and SQLite, and hands you
@@ -23,7 +42,7 @@ the query string and its bound parameters. You run it on the connection you alre
 - **[sqleasy-engine](https://github.com/deebee-tech/sqleasy-engine)** &nbsp;[![npm](https://img.shields.io/npm/v/@deebeetech/sqleasy-engine?color=cb3837&logo=npm)](https://www.npmjs.com/package/@deebeetech/sqleasy-engine) — a thin, opt-in executor for what SQLEasy builds. One `run` / `transaction` / `explain` / `close` surface per dialect; you load only the driver you import.
 - **[sqleasy-dart](https://github.com/deebee-tech/sqleasy-dart)** &nbsp;[![pub](https://img.shields.io/pub/v/sqleasy?logo=dart&color=0175C2)](https://pub.dev/packages/sqleasy) — the pure-Dart port. Flutter-ready (mobile, desktop & web), held byte-for-byte to the TypeScript original by a shared golden corpus.
 
-## The toolkit — the small utilities
+### The toolkit — the small utilities
 
 The dependency-free helpers underneath everything else. Each is a single focused package you can drop
 in without pulling in a utility-library kitchen sink.
@@ -34,6 +53,6 @@ in without pulling in a utility-library kitchen sink.
 
 ## About
 
-**DeeBee Tech** is the home of the DeeBee platform (in private development) and the open-source
-packages above. Find everything on [npm](https://www.npmjs.com/org/deebeetech) and
-[JSR](https://jsr.io/@deebeetech), or start with any repo — each ships with a full README and examples.
+**DeeBee Tech** is the home of the DeeBee platform and the open-source packages above. Find the
+packages on [npm](https://www.npmjs.com/org/deebeetech) and [JSR](https://jsr.io/@deebeetech), or
+start with any repo — each ships with a full README and examples.
